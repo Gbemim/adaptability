@@ -10,13 +10,15 @@ import Screen from './app/components/Screen'
 import MessageScreen from './app/Screens/MessageScreen'
 import LoginScreen from './app/Screens/LoginScreen'
 import AppTextInput from './app/components/AppTextInput'
+import RegisterScreen from './app/Screens/RegisterScreen'
 
 export default function App() {
   return (
     // <NavigationContainer>
     //   <TabNavigator />
     // </NavigationContainer>
-    <LoginScreen />
+    // <LoginScreen />
+    <RegisterScreen />
     // <WelcomeScreen />
   )
 }
