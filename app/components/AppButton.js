@@ -1,57 +1,33 @@
 import React from 'react'
-import { Text, StyleSheet, Platform, View } from 'react-native'
+import { Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-import color from '../config/color'
+import colors from '../config/colors'
 
-function AppButton({ title }) {
-  const login = 'Login'
+function AppButton({ title, onPress, background_color = 'primary' }) {
   return (
-    <View>
-      <View style={styles.login}>
-        <Text style={styles.textLogin}>{login}</Text>
-      </View>
-      <View style={styles.register}>
-        <Text style={styles.text}>{title}</Text>
-      </View>
-    </View>
+    <TouchableOpacity
+      style={[styles.button, { backgroundColor: colors[background_color] }]}
+      onPress={onPress}
+    >
+      <Text style={styles.text}>{title}</Text>
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  login: {
-    // backgroundColor: color.primary,
-    height: 50,
-    width: '35%',
-    position: 'absolute',
-    bottom: 150,
-    borderRadius: 100,
-    borderColor: '#fff',
-    borderWidth: 1,
-    margin: 40,
-    // alignSelf: 'center',
+  button: {
+    backgroundColor: colors.secondary,
+    borderRadius: 25,
     justifyContent: 'center',
-  },
-  register: {
-    backgroundColor: color.primary,
-    height: 50,
-    width: '35%',
-    position: 'absolute',
-    bottom: 70,
-    borderRadius: 100,
-    margin: 40,
-    // alignSelf: 'center',
-    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 15,
+    width: '100%',
+    borderColor: colors.primary,
   },
   text: {
-    color: color.secondary,
-    alignSelf: 'center',
+    color: colors.white,
     fontSize: 18,
-    fontWeight: 'bold',
-  },
-  textLogin: {
-    color: color.primary,
-    alignSelf: 'center',
-    fontSize: 18,
+    textTransform: 'uppercase',
     fontWeight: 'bold',
   },
 })

@@ -1,78 +1,65 @@
-import React, { useState, useEffect } from 'react'
-import {
-  StyleSheet,
-  View,
-  ImageBackground,
-  Text,
-  Dimensions,
-} from 'react-native'
-import { BlurView } from 'expo-blur'
-import Video from 'react-native-video'
-import * as VideoThumbnails from 'expo-video-thumbnails'
+import React from 'react'
+import { StyleSheet, View, ImageBackground, Text } from 'react-native'
 
-import colors from '../config/color.js'
+import colors from '../config/colors.js'
 import AppButton from '../components/AppButton.js'
-import { borderRightColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes'
 
-const WelcomeScreen = () => {
+const WelcomeScreen = (props) => {
   return (
-    <View style={styles.container}>
-      {/* Main background image */}
+    // {/* Main background image */}
+    <ImageBackground
+      style={styles.background}
+      source={require('../assets/wheels.jpg')}
+    >
+      <View style={styles.child}>
+        {/* The title + tagline */}
+        <View style={styles.taglineContainer}>
+          <Text style={styles.tagline}>Exercise</Text>
+          <Text style={styles.tagline}>anytime</Text>
+          <Text style={styles.tagline}>anywhere</Text>
+          <Text style={styles.tagline}>to reach</Text>
+          <Text style={styles.tagline}>your goal</Text>
+        </View>
 
-      <BlurView>
-        <ImageBackground
-          style={{
-            width: '100%',
-            height: '100%',
-          }}
-          source={require('../assets/wheels.jpg')}
-        >
-          <View style={styles.child} />
-        </ImageBackground>
-      </BlurView>
-      {/* The title + tagline */}
-      <View
-        style={{
-          position: 'absolute',
-          top: 80,
-          alignSelf: 'center',
-        }}
-      >
-        {/* <Image
-          style={{
-            width: 100,
-            height: 100,
-            alignSelf: 'center',
-          }}
-          source={require('../assets/logo-red.png')}
-        /> */}
-        <Text style={styles.tagline}>Exercise</Text>
-        <Text style={styles.tagline}>anytime</Text>
-        <Text style={styles.tagline}>anywhere</Text>
-        <Text style={styles.tagline}>to reach</Text>
-        <Text style={styles.tagline}>your goal</Text>
+        {/* Register and Login button */}
+        <View style={styles.buttonsContainer}>
+          <View style={styles.loginButton}>
+            <AppButton title='login' background_color='none' />
+          </View>
+          <View style={styles.RegisterButton}>
+            <AppButton title='Join Us' />
+          </View>
+        </View>
       </View>
-
-      {/* Register and Login button */}
-      <View>
-        <AppButton title='login' />
-      </View>
-
-      <View>
-        <AppButton title='Join Us' />
-      </View>
-    </View>
+    </ImageBackground>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
-    // justifyContent: 'flex-end',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   child: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0,0,0,.5)',
+  },
+  buttonsContainer: {
+    padding: 20,
+    width: '100%',
+    marginTop: 150,
+  },
+  loginButton: {
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 25,
+  },
+  RegisterButton: {
+    marginTop: 30,
+  },
+  taglineContainer: {
+    marginTop: 50,
   },
   tagline: {
     fontWeight: 'bold',
