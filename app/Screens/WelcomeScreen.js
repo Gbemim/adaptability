@@ -4,7 +4,7 @@ import { StyleSheet, View, ImageBackground, Text } from 'react-native'
 import colors from '../config/colors.js'
 import AppButton from '../components/AppButton.js'
 
-const WelcomeScreen = (props) => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     // {/* Main background image */}
     <ImageBackground
@@ -24,10 +24,18 @@ const WelcomeScreen = (props) => {
         {/* Register and Login button */}
         <View style={styles.buttonsContainer}>
           <View style={styles.loginButton}>
-            <AppButton title='login' background_color='none' />
+            <AppButton
+              title='login'
+              onPress={() => navigation.navigate('Login')}
+              background_color='none'
+            />
           </View>
+
           <View style={styles.RegisterButton}>
-            <AppButton title='Join Us' />
+            <AppButton
+              title='Join Us'
+              onPress={() => navigation.navigate('Register')}
+            />
           </View>
         </View>
       </View>
