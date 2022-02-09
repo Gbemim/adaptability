@@ -24,7 +24,8 @@ function RegisterScreen() {
           autoCorrect={false}
           icon='account'
           name='name'
-          placeholder='Name'
+          placeholder='Must be at least 3 characters'
+          inputName='Username'
         />
 
         <AppFormField
@@ -33,8 +34,9 @@ function RegisterScreen() {
           icon='email'
           keyboardType='email-address'
           name='email'
-          placeholder='Email'
+          placeholder='test@fitness.com'
           textContentType='emailAddress'
+          inputName='Email'
         />
 
         <AppFormField
@@ -42,9 +44,10 @@ function RegisterScreen() {
           autoCorrect={false}
           icon='lock'
           name='password'
-          placeholder='Password'
+          placeholder='Must be at least 4 characters'
           secureTextEntry
           textContentType='password'
+          inputName='Password'
         />
 
         <SubmitButton title='Sign Up' />

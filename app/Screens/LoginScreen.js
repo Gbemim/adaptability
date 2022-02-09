@@ -4,6 +4,7 @@ import * as Yup from 'yup'
 
 import Screen from '../components/Screen'
 import { AppForm, AppFormField, SubmitButton } from '../components/forms/index'
+import AppText from '../components/AppText'
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
@@ -25,8 +26,9 @@ function LoginScreen() {
           icon='email'
           keyboardType='email-address'
           name='email'
-          placeholder='Email'
+          placeholder='test@fitness.com'
           textContentType='emailAddress'
+          inputName='Email'
         />
 
         <AppFormField
@@ -37,6 +39,7 @@ function LoginScreen() {
           placeholder='Password'
           secureTextEntry
           textContentType='password'
+          inputName='Password'
         />
 
         <SubmitButton title='Login' />
@@ -49,6 +52,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
+
   logo: {
     width: 80,
     height: 80,

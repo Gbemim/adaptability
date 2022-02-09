@@ -11,14 +11,17 @@ import MessageScreen from './app/Screens/MessageScreen'
 import LoginScreen from './app/Screens/LoginScreen'
 import AppTextInput from './app/components/AppTextInput'
 import RegisterScreen from './app/Screens/RegisterScreen'
+import AuthNavigator from './app/navigation/AuthNavigator'
+import navigationTheme from './app/navigation/navigationTheme'
 
 export default function App() {
   return (
-    // <NavigationContainer>
-    //   <TabNavigator />
-    // </NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
+      {/* <TabNavigator /> */}
+      <AuthNavigator />
+    </NavigationContainer>
     // <LoginScreen />
-    <RegisterScreen />
+    // <RegisterScreen />
     // <WelcomeScreen />
   )
 }
