@@ -4,8 +4,8 @@ Roughly 15% of the world population have some form of disability and those with 
 
 # Demo of the App
 ## Login
-https://user-images.githubusercontent.com/29805657/153645855-5e7a7f1b-6352-41f2-94f1-d45f9bdb2db9.mov
+https://user-images.githubusercontent.com/29805657/153645858-3a7fbe97-19b5-4f0a-9cf8-1acf496f2db7.mov
 
 ## Sign Up
-https://user-images.githubusercontent.com/29805657/153645858-3a7fbe97-19b5-4f0a-9cf8-1acf496f2db7.mov
+https://user-images.githubusercontent.com/29805657/153645855-5e7a7f1b-6352-41f2-94f1-d45f9bdb2db9.mov
 
