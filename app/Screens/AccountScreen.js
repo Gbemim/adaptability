@@ -9,12 +9,7 @@ import authStorage from '../auth/storage'
 import useAuth from '../auth/useAuth'
 
 function AccountScreen({ navigation }) {
-  const { user, setUser } = useAuth()
-
-  const handleLogOut = () => {
-    setUser(null)
-    authStorage.removeToken()
-  }
+  const { user, logOut } = useAuth()
 
   return (
     <Screen style={styles.screen}>
@@ -23,7 +18,7 @@ function AccountScreen({ navigation }) {
         <Text onPress={() => navigation.navigate(routes.SETTINGS)}>
           Settings
         </Text>
-        <Text style={{ color: 'red', marginTop: 50 }} onPress={handleLogOut}>
+        <Text style={{ color: 'red', marginTop: 50 }} onPress={() => logOut()}>
           Log Out
         </Text>
       </View>

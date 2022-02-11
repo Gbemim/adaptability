@@ -12,7 +12,7 @@ import WorkoutButton from './WorkoutButton'
 const Tab = createBottomTabNavigator()
 
 const AppNavigator = () => (
-  <Tab.Navigator>
+  <Tab.Navigator initialRouteName='Feed'>
     <Tab.Screen
       name='Account'
       component={AccountNavigator}

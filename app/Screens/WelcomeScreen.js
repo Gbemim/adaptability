@@ -33,8 +33,8 @@ const WelcomeScreen = ({ navigation }) => {
           </View>
           <View style={styles.RegisterButton}>
             <AppButton
-              title='Join Us'
-              onPress={() => navigation.navigate(routes.REGISTER)}
+              title='Sign Up'
+              onPress={() => navigation.navigate(routes.SIGN_UP)}
             />
           </View>
         </View>

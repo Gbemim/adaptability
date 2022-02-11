@@ -1,9 +1,19 @@
-import React from 'react'
-import { StyleSheet, Image } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet } from 'react-native'
 import * as Yup from 'yup'
 
 import Screen from '../components/Screen'
-import { AppForm, AppFormField, SubmitButton } from '../components/forms/index'
+import {
+  AppForm,
+  AppFormField,
+  SubmitButton,
+  ErrorMessage,
+} from '../components/forms/index'
+import useApi from '../hooks/useApi'
+import usersApi from '../api/users'
+import authApi from '../api/auth'
+import useAuth from '../auth/useAuth'
+import ActivityIndicator from '../components/ActivityIndicator'
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label('Name'),
@@ -12,60 +22,81 @@ const validationSchema = Yup.object().shape({
 })
 
 function RegisterScreen() {
+  const registerApi = useApi(usersApi.register)
+  const loginApi = useApi(authApi.login)
+  const auth = useAuth()
+  const [error, setError] = useState()
+
+  const handleSubmit = async (userInfo) => {
+    const result = await registerApi.request(userInfo)
+
+    if (!result.ok) {
+      if (result.data) setError(result.data.error)
+      else {
+        setError('An unexpected error occurred.')
+        console.log(result)
+      }
+      return
+    }
+
+    const { data: authToken } = await loginApi.request(
+      userInfo.email,
+      userInfo.password
+    )
+
+    auth.logIn(authToken)
+  }
   return (
-    <Screen style={styles.container}>
-      {/* <Image source={require('../assets/logo-red.png')} style={styles.logo} /> */}
-      <AppForm
-        initialValues={{ name: '', email: '', password: '' }}
-        onSubmit={(values) => console.log(values)}
-        validationSchema={validationSchema}
-      >
-        <AppFormField
-          autoCorrect={false}
-          icon='account'
-          name='name'
-          placeholder='Must be at least 3 characters'
-          inputName='Username'
-        />
+    <>
+      <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
 
-        <AppFormField
-          autoCapitalize='none'
-          autoCorrect={false}
-          icon='email'
-          keyboardType='email-address'
-          name='email'
-          placeholder='test@fitness.com'
-          textContentType='emailAddress'
-          inputName='Email'
-        />
+      <Screen style={styles.container}>
+        <AppForm
+          initialValues={{ name: '', email: '', password: '' }}
+          onSubmit={handleSubmit}
+          validationSchema={validationSchema}
+        >
+          <ErrorMessage error={error} visible={error} />
+          <AppFormField
+            autoCorrect={false}
+            icon='account'
+            name='name'
+            placeholder='Must be at least 3 characters'
+            inputName='Username'
+          />
 
-        <AppFormField
-          autoCapitalize='none'
-          autoCorrect={false}
-          icon='lock'
-          name='password'
-          placeholder='Must be at least 4 characters'
-          secureTextEntry
-          textContentType='password'
-          inputName='Password'
-        />
+          <AppFormField
+            autoCapitalize='none'
+            autoCorrect={false}
+            icon='email'
+            keyboardType='email-address'
+            name='email'
+            placeholder='test@fitness.com'
+            textContentType='emailAddress'
+            inputName='Email'
+          />
 
-        <SubmitButton title='Sign Up' />
-      </AppForm>
-    </Screen>
+          <AppFormField
+            autoCapitalize='none'
+            autoCorrect={false}
+            icon='lock'
+            name='password'
+            placeholder='Must be at least 5 characters'
+            secureTextEntry
+            textContentType='password'
+            inputName='Password'
+          />
+
+          <SubmitButton title='Sign Up' />
+        </AppForm>
+      </Screen>
+    </>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-  },
-  logo: {
-    width: 80,
-    height: 80,
-    alignSelf: 'center',
-    marginBottom: 20,
-    marginTop: 50,
   },
 })
 
