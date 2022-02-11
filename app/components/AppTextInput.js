@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, StyleSheet, TextInput } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import defaultStyles from '../config/styles'
 import AppText from '../components/AppText'

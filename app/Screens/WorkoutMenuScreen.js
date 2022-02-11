@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, Text, FlatList, Button } from 'react-native'
+import { StyleSheet, FlatList } from 'react-native'
 
 import Screen from '../components/Screen'
 import routes from '../navigation/routes'

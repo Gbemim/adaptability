@@ -5,7 +5,7 @@ import Swipeable from 'react-native-gesture-handler/Swipeable'
 
 import colors from '../config/colors'
 import Text from '../config/styles'
-// Look into this
+
 function ListItem({
   title,
   subTitle,

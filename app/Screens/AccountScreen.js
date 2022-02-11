@@ -1,11 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
-import AuthContext from '../auth/context'
 
 import routes from '../navigation/routes'
-import ListItem from '../components/ListItem'
 import Screen from '../components/Screen'
-import authStorage from '../auth/storage'
 import useAuth from '../auth/useAuth'
 
 function AccountScreen({ navigation }) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text } from 'react-native'
 
-function ActivityScreen(props) {
+function ActivityScreen() {
   return (
     <View style={styles.container}>
       <Text>History and Achievements</Text>

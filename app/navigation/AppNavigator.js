@@ -2,8 +2,6 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialCommunityIcons, SimpleLineIcons } from '@expo/vector-icons'
 
-import WorkoutMenuScreen from '../Screens/WorkoutMenuScreen'
-import AccountScreen from '../Screens/AccountScreen'
 import ActivityScreen from '../Screens/ActivityScreen'
 import FeedNavigator from './FeedNavigator'
 import AccountNavigator from './AccountNavigator'

@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react'
-import { StyleSheet, Image } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet } from 'react-native'
 import * as Yup from 'yup'
-import jwtDecode from 'jwt-decode'
 
 import Screen from '../components/Screen'
 import {
@@ -10,10 +9,7 @@ import {
   SubmitButton,
   ErrorMessage,
 } from '../components/forms/index'
-import AppText from '../components/AppText'
 import authApi from '../api/auth'
-import AuthContext from '../auth/context'
-import authStorage from '../auth/storage'
 import useAuth from '../auth/useAuth'
 
 const validationSchema = Yup.object().shape({
@@ -24,7 +20,6 @@ const validationSchema = Yup.object().shape({
 function LoginScreen() {
   const auth = useAuth()
 
-  const authContext = useContext(AuthContext)
   const [loginFailed, setLoginFailed] = useState(false)
 
   const handleSubmit = async ({ email, password }) => {
@@ -36,7 +31,6 @@ function LoginScreen() {
   }
   return (
     <Screen style={styles.container}>
-      {/* <Image source={require('../assets/logo-red.png')} style={styles.logo} /> */}
       <AppForm
         initialValues={{ email: '', password: '' }}
         onSubmit={handleSubmit}
