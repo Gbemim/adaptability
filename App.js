@@ -9,6 +9,11 @@ import AppNavigator from './app/navigation/AppNavigator'
 import AuthContext from './app/auth/context'
 import authStorage from './app/auth/storage'
 
+//Testing Screens
+import Assurance1 from './app/Screens/Onboarding/Assurance1'
+import TermsAndConditions2 from './app/Screens/Onboarding/TermsAndConditions2'
+import PotentialEquipment3 from './app/Screens/Onboarding/PotentialEquipment3'
+
 export default function App() {
   const [user, setUser] = useState()
 
@@ -23,10 +28,13 @@ export default function App() {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
-      <NavigationContainer theme={navigationTheme}>
-        {user ? <AppNavigator /> : <AuthNavigator />}
-      </NavigationContainer>
-    </AuthContext.Provider>
+    // <AuthContext.Provider value={{ user, setUser }}>
+    //   <NavigationContainer theme={navigationTheme}>
+    //     {user ? <AppNavigator /> : <AuthNavigator />}
+    //   </NavigationContainer>
+    // </AuthContext.Provider>
+    // <Assurance1 />
+    // <TermsAndConditions2 />
+    <PotentialEquipment3 />
   )
 }
