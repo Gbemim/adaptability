@@ -12,7 +12,7 @@ import authStorage from './app/auth/storage'
 //Testing Screens
 import Assurance1 from './app/Screens/Onboarding/Assurance1'
 import TermsAndConditions2 from './app/Screens/Onboarding/TermsAndConditions2'
-import PotentialEquipment3 from './app/Screens/Onboarding/PotentialEquipment3'
+import PotentialEquipments3 from './app/Screens/Onboarding/PotentialEquipments3'
 
 export default function App() {
   const [user, setUser] = useState()
@@ -35,6 +35,6 @@ export default function App() {
     // </AuthContext.Provider>
     // <Assurance1 />
     // <TermsAndConditions2 />
-    <PotentialEquipment3 />
+    <PotentialEquipments3 />
   )
 }
