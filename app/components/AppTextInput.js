@@ -5,7 +5,7 @@ import defaultStyles from '../config/styles'
 import AppText from '../components/AppText'
 import colors from '../config/colors'
 
-function AppTextInput({ icon, inputName, ...otherProps }) {
+function AppTextInput({ icon, inputName, inputStyle, ...otherProps }) {
   return (
     <View>
       <AppText style={[defaultStyles.text, styles.inputName]}>
@@ -20,7 +20,7 @@ function AppTextInput({ icon, inputName, ...otherProps }) {
             style={styles.icon}
           />
         )} */}
-        <TextInput style={defaultStyles.text} {...otherProps} />
+        <TextInput style={[defaultStyles.text, inputStyle]} {...otherProps} />
       </View>
     </View>
   )
