@@ -15,6 +15,7 @@ import TermsAndConditions2 from './app/Screens/Onboarding/TermsAndConditions2'
 import PotentialEquipments3 from './app/Screens/Onboarding/PotentialEquipments3'
 import FrequencyOfWorkout4 from './app/Screens/Onboarding/FrequencyOfWorkout4'
 import Goal5 from './app/Screens/Onboarding/Goal5'
+import Muscles6 from './app/Screens/Onboarding/Muscles6'
 
 export default function App() {
   const [user, setUser] = useState()
@@ -39,6 +40,7 @@ export default function App() {
     // <TermsAndConditions2 />
     // <PotentialEquipments3 />
     // <FrequencyOfWorkout4 />
-    <Goal5 />
+    // <Goal5 />
+    <Muscles6 />
   )
 }

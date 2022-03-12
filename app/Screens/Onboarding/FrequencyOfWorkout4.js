@@ -7,7 +7,7 @@ import AppText from '../../components/AppText.js'
 import Screen from '../../components/Screen.js'
 import colors from '../../config/colors.js'
 
-const Assurance1 = () => {
+const FrequencyOfWorkout4 = () => {
   return (
     <Screen>
       <View style={styles.container}>
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Assurance1
+export default FrequencyOfWorkout4

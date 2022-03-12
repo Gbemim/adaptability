@@ -8,7 +8,7 @@ import Cards from '../../components/Cards.js'
 import Screen from '../../components/Screen.js'
 import colors from '../../config/colors.js'
 
-const PotentialEquipments3 = () => {
+const Goal5 = () => {
   return (
     <Screen>
       <View style={styles.container}>
@@ -76,4 +76,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default PotentialEquipments3
+export default Goal5
