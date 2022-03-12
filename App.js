@@ -13,6 +13,7 @@ import authStorage from './app/auth/storage'
 import Assurance1 from './app/Screens/Onboarding/Assurance1'
 import TermsAndConditions2 from './app/Screens/Onboarding/TermsAndConditions2'
 import PotentialEquipments3 from './app/Screens/Onboarding/PotentialEquipments3'
+import FrequencyOfWorkout4 from './app/Screens/Onboarding/FrequencyOfWorkout4'
 
 export default function App() {
   const [user, setUser] = useState()
@@ -35,6 +36,7 @@ export default function App() {
     // </AuthContext.Provider>
     // <Assurance1 />
     // <TermsAndConditions2 />
-    <PotentialEquipments3 />
+    // <PotentialEquipments3 />
+    <FrequencyOfWorkout4 />
   )
 }

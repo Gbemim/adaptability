@@ -33,7 +33,7 @@ const PotentialEquipments3 = () => {
         </View>
 
         <AppText style={styles.text}>
-          Do you use equipment or do you plan to use these equipment?
+          Do you use or plan to use the following equipments?
         </AppText>
         <ScrollView
           automaticallyAdjustsScrollIndicatorInsets={true}
