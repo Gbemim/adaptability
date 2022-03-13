@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView } from 'react-native'
+import * as Progress from 'react-native-progress'
 
 import AppButton from '../../components/AppButton.js'
 import AppText from '../../components/AppText.js'
@@ -9,6 +10,12 @@ const TermsAndConditions2 = () => {
   return (
     <Screen>
       <View style={styles.container}>
+        <Progress.Bar
+          progress={0.33}
+          width={null}
+          animationConfig={{ bounciness: 1 }}
+          color={'rgba(64, 66, 82, 1)'}
+        />
         <AppText style={styles.header}> Terms And Conditions </AppText>
         <ScrollView
           automaticallyAdjustsScrollIndicatorInsets={true}

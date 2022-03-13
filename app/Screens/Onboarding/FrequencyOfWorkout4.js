@@ -12,7 +12,7 @@ const FrequencyOfWorkout4 = () => {
     <Screen>
       <View style={styles.container}>
         <Progress.Bar
-          progress={0.3}
+          progress={0.66}
           width={null}
           animationConfig={{ bounciness: 1 }}
           color={'rgba(64, 66, 82, 1)'}
