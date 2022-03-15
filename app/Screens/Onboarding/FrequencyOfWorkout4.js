@@ -60,10 +60,11 @@ const FrequencyOfWorkout4 = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 30,
+    paddingTop: 10,
   },
   text: {
     alignSelf: 'center',
-    marginTop: 50,
+    marginTop: 35,
   },
   listOfOptions: {
     marginTop: 40,

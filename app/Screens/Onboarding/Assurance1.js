@@ -5,8 +5,9 @@ import * as Progress from 'react-native-progress'
 import AppButton from '../../components/AppButton.js'
 import AppText from '../../components/AppText.js'
 import Screen from '../../components/Screen.js'
+import routes from '../../navigation/routes'
 
-const Assurance1 = () => {
+function Assurance1({ navigation }) {
   return (
     <Screen>
       <View style={styles.container}>
@@ -23,14 +24,17 @@ const Assurance1 = () => {
           way possible.
         </AppText>
         <View style={styles.button}>
-          <AppButton title='Yes I have!' />
+          <AppButton
+            title='Yes I have!'
+            onPress={() => navigation.navigate(routes.TERMS_AND_CONDITIONS)}
+          />
           <AppButton
             title="No, I don't plan to"
-            onPress={() => navigation.navigate(routes.SIGN_UP)}
+            onPress={() => navigation.navigate(routes.WELCOME)}
           />
           <AppButton
             title='No, but I will'
-            onPress={() => navigation.navigate(routes.SIGN_UP)}
+            onPress={() => navigation.navigate(routes.WELCOME)}
           />
         </View>
       </View>
@@ -41,6 +45,7 @@ const Assurance1 = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 30,
+    paddingTop: 15,
   },
   text: {
     alignSelf: 'center',

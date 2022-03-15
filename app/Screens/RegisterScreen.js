@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet } from 'react-native'
 import * as Yup from 'yup'
+import { useFormikContext } from 'formik'
 
 import Screen from '../components/Screen'
 import {
@@ -14,21 +15,32 @@ import usersApi from '../api/users'
 import authApi from '../api/auth'
 import useAuth from '../auth/useAuth'
 import ActivityIndicator from '../components/ActivityIndicator'
+import routes from '../navigation/routes'
+import AppButton from '../components/AppButton'
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().label('Name'),
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(4).label('Password'),
 })
-
+//{ navigation }
 function RegisterScreen() {
   const registerApi = useApi(usersApi.register)
   const loginApi = useApi(authApi.login)
   const auth = useAuth()
   const [error, setError] = useState()
 
+  // const startOnBoarding = () => navigation.navigate(routes.POTENTIAL_EQUIPMENTS)
+  // const { testHandleSubmit } = useFormikContext()
+
+  // const combined = () => {
+  //   useFormikContext()
+  //   startOnBoarding()
+  // }
+
   const handleSubmit = async (userInfo) => {
     const result = await registerApi.request(userInfo)
+    // const result = await usersApi.register(userInfo)
 
     if (!result.ok) {
       if (result.data) setError(result.data.error)
@@ -43,6 +55,10 @@ function RegisterScreen() {
       userInfo.email,
       userInfo.password
     )
+    // const { data: authToken } = await authApi.login(
+    //   userInfo.email,
+    //   userInfo.password
+    // )
 
     auth.logIn(authToken)
   }
@@ -87,6 +103,15 @@ function RegisterScreen() {
             inputName='Password'
           />
 
+          {/* <AppButton
+            title='Sign Up'
+            // onPress={() => navigation.navigate(routes.ASSURANCE)}
+          /> */}
+
+          {/* <AppButton
+            title='Sign Up'
+            onPress={testHandleSubmit && startOnBoarding()}
+          /> */}
           <SubmitButton title='Sign Up' />
         </AppForm>
       </Screen>

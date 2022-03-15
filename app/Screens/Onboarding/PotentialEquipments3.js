@@ -24,13 +24,13 @@ const PotentialEquipments3 = () => {
           animationConfig={{ bounciness: 1 }}
           color={'rgba(64, 66, 82, 1)'}
         />
-        <View style={styles.button}>
+        {/* <View style={styles.button}>
           <Button
             title='Next >'
             onPress={console.log('Click')}
             color={colors.dark}
           />
-        </View>
+        </View> */}
 
         <AppText style={styles.text}>
           Do you use or plan to use the following equipments?
@@ -45,7 +45,7 @@ const PotentialEquipments3 = () => {
             <Cards
               nameOfCard={'Jumping Rope'}
               image={equipImages.jumpingRope}
-              onPressButton={console.log('testing')}
+              // onPressButton={console.log('testing')}
             />
             <Cards
               nameOfCard={'Medicine Ball'}
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   text: {
     alignSelf: 'center',
     marginBottom: 20,
+    marginTop: 40,
   },
 })
 

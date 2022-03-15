@@ -5,8 +5,9 @@ import * as Progress from 'react-native-progress'
 import AppButton from '../../components/AppButton.js'
 import AppText from '../../components/AppText.js'
 import Screen from '../../components/Screen.js'
+import routes from '../../navigation/routes.js'
 
-const TermsAndConditions2 = () => {
+const TermsAndConditions2 = ({ navigation }) => {
   return (
     <Screen>
       <View style={styles.container}>
@@ -47,10 +48,13 @@ const TermsAndConditions2 = () => {
           </AppText>
         </ScrollView>
         <View style={styles.button}>
-          <AppButton title='I agree' />
+          <AppButton
+            title='I agree'
+            onPress={() => navigation.navigate(routes.SIGN_UP)}
+          />
           <AppButton
             title='Cancel'
-            onPress={() => navigation.navigate(routes.SIGN_UP)}
+            onPress={() => navigation.navigate(routes.WELCOME)}
           />
         </View>
       </View>
@@ -61,6 +65,7 @@ const TermsAndConditions2 = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 35,
+    paddingTop: 15,
     width: '100%',
     height: '100%',
   },

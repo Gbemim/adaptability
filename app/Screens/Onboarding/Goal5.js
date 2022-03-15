@@ -18,13 +18,13 @@ const Goal5 = () => {
           animationConfig={{ bounciness: 1 }}
           color={'rgba(64, 66, 82, 1)'}
         />
-        <View style={styles.button}>
+        {/* <View style={styles.button}>
           <Button
             title='Next >'
             onPress={console.log('Click')}
             color={colors.dark}
           />
-        </View>
+        </View> */}
 
         <AppText style={styles.text}>
           In 280 characters or less, what is your GOAL while using AdaptAbility?
@@ -65,11 +65,12 @@ const styles = StyleSheet.create({
   },
   childContainer: {
     width: '100%',
-    bottom: 200,
+    bottom: 250,
   },
   text: {
     alignSelf: 'center',
     marginBottom: 20,
+    marginTop: 40,
   },
   goal: {
     fontSize: 16,

@@ -26,13 +26,13 @@ const Muscles6 = () => {
           animationConfig={{ bounciness: 1 }}
           color={'rgba(64, 66, 82, 1)'}
         />
-        <View style={styles.button}>
+        {/* <View style={styles.button}>
           <Button
             title='Next >'
             onPress={console.log('Click')}
             color={colors.dark}
           />
-        </View>
+        </View> */}
 
         <AppText style={styles.text}>
           Which muscles are able and medically cleared to workout? If not known
@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
   text: {
     alignSelf: 'center',
     marginBottom: 20,
+    marginTop: 35,
   },
 })
 

@@ -36,11 +36,16 @@ export default function App() {
     //     {user ? <AppNavigator /> : <AuthNavigator />}
     //   </NavigationContainer>
     // </AuthContext.Provider>
+    <AuthContext.Provider value={{ user, setUser }}>
+      <NavigationContainer theme={navigationTheme}>
+        {user ? <PotentialEquipments3 /> : <AuthNavigator />}
+      </NavigationContainer>
+    </AuthContext.Provider>
     // <Assurance1 />
     // <TermsAndConditions2 />
     // <PotentialEquipments3 />
     // <FrequencyOfWorkout4 />
     // <Goal5 />
-    <Muscles6 />
+    // <Muscles6 />
   )
 }
