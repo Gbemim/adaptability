@@ -1,13 +1,20 @@
 import React from 'react'
 import { StyleSheet, View, ScrollView, Button } from 'react-native'
 import * as Progress from 'react-native-progress'
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native'
 
 import AppText from '../../components/AppText.js'
 import Cards from '../../components/Cards.js'
 import Screen from '../../components/Screen.js'
 import colors from '../../config/colors.js'
+import AppButton from '../../components/AppButton.js'
+import routes from '../../navigation/routes.js'
+import AppNavigator from '../../navigation/AppNavigator.js'
 
-const Muscles6 = () => {
+const Muscles6 = ({ navigation }) => {
   const muscleGroups = {
     abs: require('../../assets/muscles/abs.jpg'),
     back: require('../../assets/muscles/back.jpg'),
@@ -17,6 +24,8 @@ const Muscles6 = () => {
     shoulder: require('../../assets/muscles/shoulders.jpg'),
     calves: require('../../assets/muscles/calves.jpg'),
   }
+
+  navigationRef = useNavigationContainerRef()
   return (
     <Screen>
       <View style={styles.container}>
@@ -48,7 +57,7 @@ const Muscles6 = () => {
             <Cards
               nameOfCard={'Back'}
               image={muscleGroups.back}
-              onPressButton={console.log('testing')}
+              // onPressButton={console.log('testing')}
             />
             <Cards nameOfCard={'Lower Back'} image={muscleGroups.lowerBack} />
             <Cards nameOfCard={'Biceps'} image={muscleGroups.biceps} />
@@ -56,6 +65,12 @@ const Muscles6 = () => {
             <Cards nameOfCard={'Calves'} image={muscleGroups.calves} />
           </View>
         </ScrollView>
+        <AppButton
+          title={'Next'}
+          theStyle={styles.button}
+          textStyle={styles.theText}
+          onPress={() => navigation.navigate(routes.SIGN_UP)}
+        />
       </View>
     </Screen>
   )
@@ -69,9 +84,14 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   button: {
-    marginTop: 20,
-    paddingBottom: 10,
-    marginLeft: '77%',
+    fontSize: 50,
+    backgroundColor: colors.secondary,
+    marginTop: 30,
+    padding: 18,
+    borderRadius: 5,
+  },
+  theText: {
+    color: colors.primary,
   },
   equipments: {
     flex: 1,

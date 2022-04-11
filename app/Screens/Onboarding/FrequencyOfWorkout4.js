@@ -6,8 +6,9 @@ import AppButton from '../../components/AppButton.js'
 import AppText from '../../components/AppText.js'
 import Screen from '../../components/Screen.js'
 import colors from '../../config/colors.js'
+import routes from '../../navigation/routes.js'
 
-const FrequencyOfWorkout4 = () => {
+const FrequencyOfWorkout4 = ({ navigation }) => {
   return (
     <Screen>
       <View style={styles.container}>
@@ -26,30 +27,31 @@ const FrequencyOfWorkout4 = () => {
             title='5 to 7 times per week'
             textStyle={styles.options}
             theStyle={styles.button}
+            onPress={() => navigation.navigate(routes.GOAL)}
           />
           <AppButton
             title='Couple of times per week'
             textStyle={styles.options}
             theStyle={styles.button}
-            // onPress={}
+            onPress={() => navigation.navigate(routes.GOAL)}
           />
           <AppButton
             title='Once or twice per week'
             textStyle={styles.options}
             theStyle={styles.button}
-            // onPress={}
+            onPress={() => navigation.navigate(routes.GOAL)}
           />
           <AppButton
             title='Rarely'
             textStyle={styles.options}
             theStyle={styles.button}
-            // onPress={}
+            onPress={() => navigation.navigate(routes.GOAL)}
           />
           <AppButton
             title='Never'
             textStyle={styles.options}
             theStyle={styles.button}
-            // onPress={}
+            onPress={() => navigation.navigate(routes.GOAL)}
           />
         </View>
       </View>

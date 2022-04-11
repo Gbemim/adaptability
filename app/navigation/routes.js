@@ -7,4 +7,8 @@ export default Object.freeze({
   ASSURANCE: 'Assurance',
   TERMS_AND_CONDITIONS: 'Terms And Conditions',
   POTENTIAL_EQUIPMENTS: 'Potential Equipments',
+  FREQUENCY_OF_WORKOUT: 'Frequency Of Workout',
+  GOAL: 'Goal',
+  MUSCLES: 'Muscles',
+  ACCOUNT: 'Account',
 })

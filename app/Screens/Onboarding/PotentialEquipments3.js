@@ -6,8 +6,13 @@ import AppText from '../../components/AppText.js'
 import Cards from '../../components/Cards.js'
 import Screen from '../../components/Screen.js'
 import colors from '../../config/colors.js'
+import useApi from '../../hooks/useApi.js'
+import equipmentsApi from '../../api/equipments.js'
+import AppButton from '../../components/AppButton.js'
+import routes from '../../navigation/routes.js'
 
-const PotentialEquipments3 = () => {
+const PotentialEquipments3 = ({ navigation }) => {
+  // const getListingsApi = useApi(equipmentsApi.getListings)
   const equipImages = {
     mat: require('../../assets/equipments/mat.png'),
     dumbbell: require('../../assets/equipments/dumbbell.png'),
@@ -45,7 +50,6 @@ const PotentialEquipments3 = () => {
             <Cards
               nameOfCard={'Jumping Rope'}
               image={equipImages.jumpingRope}
-              // onPressButton={console.log('testing')}
             />
             <Cards
               nameOfCard={'Medicine Ball'}
@@ -57,6 +61,12 @@ const PotentialEquipments3 = () => {
             />
           </View>
         </ScrollView>
+        <AppButton
+          title={'Next'}
+          theStyle={styles.button}
+          textStyle={styles.theText}
+          onPress={() => navigation.navigate(routes.FREQUENCY_OF_WORKOUT)}
+        />
       </View>
     </Screen>
   )
@@ -70,9 +80,14 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   button: {
-    marginTop: 20,
-    paddingBottom: 10,
-    marginLeft: '77%',
+    fontSize: 50,
+    backgroundColor: colors.secondary,
+    marginTop: 30,
+    padding: 18,
+    borderRadius: 5,
+  },
+  theText: {
+    color: colors.primary,
   },
   equipments: {
     flex: 1,

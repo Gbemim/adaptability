@@ -50,7 +50,7 @@ const TermsAndConditions2 = ({ navigation }) => {
         <View style={styles.button}>
           <AppButton
             title='I agree'
-            onPress={() => navigation.navigate(routes.SIGN_UP)}
+            onPress={() => navigation.navigate(routes.POTENTIAL_EQUIPMENTS)}
           />
           <AppButton
             title='Cancel'

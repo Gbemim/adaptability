@@ -7,8 +7,10 @@ import AppTextInput from '../../components/AppTextInput.js'
 import Cards from '../../components/Cards.js'
 import Screen from '../../components/Screen.js'
 import colors from '../../config/colors.js'
+import AppButton from '../../components/AppButton.js'
+import routes from '../../navigation/routes.js'
 
-const Goal5 = () => {
+const Goal5 = ({ navigation }) => {
   return (
     <Screen>
       <View style={styles.container}>
@@ -46,6 +48,12 @@ const Goal5 = () => {
             />
           </View>
         </ScrollView>
+        <AppButton
+          title={'Next'}
+          theStyle={styles.button}
+          textStyle={styles.theText}
+          onPress={() => navigation.navigate(routes.MUSCLES)}
+        />
       </View>
     </Screen>
   )
@@ -59,9 +67,13 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   button: {
-    marginTop: 20,
-    paddingBottom: 10,
-    marginLeft: '77%',
+    fontSize: 50,
+    backgroundColor: colors.secondary,
+    padding: 18,
+    borderRadius: 5,
+  },
+  theText: {
+    color: colors.primary,
   },
   childContainer: {
     width: '100%',

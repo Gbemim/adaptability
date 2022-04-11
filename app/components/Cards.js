@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { View, StyleSheet, Image } from 'react-native'
+import { View, StyleSheet, Image, Pressable } from 'react-native'
 import AppButton from './AppButton'
 import AppText from './AppText'
 import colors from '../config/colors'
 
 function Cards({ nameOfCard, image, onPressButton }) {
+  const [add, setAdd] = useState(colors.primary)
+
+  const change = () => {
+    if (add === colors.medium) setAdd(colors.primary)
+  }
+
   return (
     <View style={styles.container}>
-      <Image source={image} style={styles.image} />
-      <AppText style={styles.title}>{nameOfCard}</AppText>
-      <AppButton title={'+'} theStyle={styles.button} onPress={onPressButton} />
+      <Pressable>
+        <Image source={image} style={styles.image} />
+        <AppText style={styles.title}>{nameOfCard}</AppText>
+        <AppButton
+          title={'+'}
+          theStyle={{ ...styles.button }}
+          onPress={() => change()}
+        />
+      </Pressable>
     </View>
   )
 }
-
+// onPress={onPressButton}
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.secondary_images,

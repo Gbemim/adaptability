@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
-import { NavigationContainer } from '@react-navigation/native'
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native'
 import jwtDecode from 'jwt-decode'
 
 import AuthNavigator from './app/navigation/AuthNavigator'
@@ -16,8 +19,11 @@ import PotentialEquipments3 from './app/Screens/Onboarding/PotentialEquipments3'
 import FrequencyOfWorkout4 from './app/Screens/Onboarding/FrequencyOfWorkout4'
 import Goal5 from './app/Screens/Onboarding/Goal5'
 import Muscles6 from './app/Screens/Onboarding/Muscles6'
+import OnboardingNavigator from './app/navigation/OnboardingNavigator'
 
 export default function App() {
+  navigationRef = useNavigationContainerRef()
+
   const [user, setUser] = useState()
 
   const restoreToken = async () => {
@@ -30,17 +36,23 @@ export default function App() {
     restoreToken()
   }, [])
 
+  // testing = () => {
+  //   if (user) {
+  //     ;<OnboardingNavigator />
+  //   }
+  // }
+
   return (
-    // <AuthContext.Provider value={{ user, setUser }}>
-    //   <NavigationContainer theme={navigationTheme}>
-    //     {user ? <AppNavigator /> : <AuthNavigator />}
-    //   </NavigationContainer>
-    // </AuthContext.Provider>
     <AuthContext.Provider value={{ user, setUser }}>
       <NavigationContainer theme={navigationTheme}>
-        {user ? <PotentialEquipments3 /> : <AuthNavigator />}
+        {user ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </AuthContext.Provider>
+    // <AuthContext.Provider value={{ user, setUser }}>
+    //   <NavigationContainer theme={navigationTheme} ref={navigationRef}>
+    //     {user ? <OnboardingNavigator /> || <Muscles6 /> : <AuthNavigator />}
+    //   </NavigationContainer>
+    // </AuthContext.Provider>
     // <Assurance1 />
     // <TermsAndConditions2 />
     // <PotentialEquipments3 />
