@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator()
 
 const FeedNavigator = () => (
   <Stack.Navigator screenOptions={{ presentation: 'modal' }}>
-    <Stack.Screen name='Workouts' component={WorkoutMenuScreen}></Stack.Screen>
+    <Stack.Screen name='Explore' component={WorkoutMenuScreen}></Stack.Screen>
     <Stack.Screen
       name='Workout Detail'
       component={WorkoutDetailsScreen}
