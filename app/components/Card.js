@@ -1,22 +1,50 @@
-import React from 'react'
-import { View, StyleSheet, Image } from 'react-native'
+import React, { useEffect, useState, useRef, useCallback } from 'react'
+import { View, StyleSheet, Image, Modal } from 'react-native'
+import Youtube, { getYoutubeMeta } from 'react-native-youtube-iframe'
+// import { getYoutubeMeta } from 'react-native-youtube-iframe'
 
 import AppText from './AppText'
 import colors from '../config/colors'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import routes from '../navigation/routes'
+import WorkoutDetailsScreen from '../Screens/WorkoutDetailsScreen'
+import { useNavigation } from '@react-navigation/native'
 
-function Card({ name, muscleGroup, onPress, image }) {
-  return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <View style={styles.card}>
-        <Image source={image} style={styles.image} />
-        <View style={styles.detailsContainer}>
-          <AppText style={styles.name}>{name}</AppText>
-          <AppText style={styles.muscleGroup}>{muscleGroup}</AppText>
+function Card({ videoId, image, name }) {
+  const [videoMeta, setVideoMeta] = useState(null)
+  // const [duration, setDuration] = useState(0)
+
+  const navigation = useNavigation()
+
+  useEffect(() => {
+    getYoutubeMeta(videoId).then((data) => {
+      setVideoMeta(data)
+    })
+  }, [videoId])
+
+  if (videoMeta) {
+    return (
+      <TouchableWithoutFeedback
+        onPress={() =>
+          navigation.navigate(routes.WORKOUT_DETAIL, {
+            titles: videoMeta.title,
+            videoIds: videoId,
+          })
+        }
+      >
+        <View style={styles.card}>
+          <Image
+            source={{ uri: videoMeta.thumbnail_url }}
+            style={styles.image}
+          />
+          <View style={styles.detailsContainer}>
+            <AppText style={styles.name}>{videoMeta.title}</AppText>
+          </View>
         </View>
-      </View>
-    </TouchableWithoutFeedback>
-  )
+      </TouchableWithoutFeedback>
+    )
+  }
+  return null
 }
 
 const styles = StyleSheet.create({

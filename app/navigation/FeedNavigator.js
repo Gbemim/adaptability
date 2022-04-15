@@ -11,6 +11,7 @@ const FeedNavigator = () => (
     <Stack.Screen name='Explore' component={WorkoutMenuScreen}></Stack.Screen>
     <Stack.Screen
       name='Workout Detail'
+      options={{ headerShown: false }}
       component={WorkoutDetailsScreen}
     ></Stack.Screen>
   </Stack.Navigator>
